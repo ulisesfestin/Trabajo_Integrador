@@ -3,7 +3,7 @@ INPUT_AGE = "Enter the age: "
 INPUT_STRENGTH = "Enter strength points: "
 INPUT_AGILITY = "Enter agility points: "
 INPUT_CONSTITUTION = "Enter constitution points: "
-INPUT_TYPE = "Enter the type of character: "
+INPUT_TYPE = "Enter the type of character (Human, Elf, Orc): "
 INPUT_DELETE_CHARACTER = "Enter the number of the character to delete: "
 
 CHARACTER_MOVING = "Character is moving."

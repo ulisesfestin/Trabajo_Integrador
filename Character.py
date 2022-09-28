@@ -9,6 +9,8 @@ class Character:
         self.__agility = agility if self.check_validate_atributes(strength, agility, constitution, type) else EMPTY_INT
         self.__constitution = constitution if self.check_validate_atributes(strength, agility, constitution, type) else EMPTY_INT
         self.__type = type
+        self.__level = 0
+        self.__experience = 0
         self.__characters_list = []
 
     def get_name(self):

@@ -6,8 +6,8 @@ from Orc import Orc
 from Enemy import Enemy
 from GSC_Constants import *
 from Controller import *
-Characters = Controller()
-Enemies = Controller()
+Controller_Characters = Controller()
+Controller_Enemies = Controller()
 
 
 def create_character():
@@ -20,20 +20,19 @@ def create_character():
 
     if type == IF_HUMAN_TYPE:
         human_character = Human(name, age, strength, agility, constitution, type)
-        Characters.add_character_list(human_character)
+        Controller_Characters.add_character_list(human_character)
     if type == IF_ELF_TYPE:
         elf_character = Elf(name, age, strength, agility, constitution, type)
-        Characters.add_character_list(elf_character)
+        Controller_Characters.add_character_list(elf_character)
     if type == IF_ORC_TYPE:
         orc_character = Orc(name, age, strength, agility, constitution, type)
-        Characters.add_character_list(orc_character)
-        print(orc_character.get_attributes())
+        Controller_Characters.add_character_list(orc_character)
 
 
 def delete_character():
-    Characters.view_character_list()
+    Controller_Characters.view_character_list()
     index = int(input(INPUT_DELETE_CHARACTER))
-    Characters.delete_character_list(index - 1)
+    Controller_Characters.delete_character_list(index - 1)
 
 
 def generate_random_attributes(number_of_attributes, total, range1, range2):
@@ -56,7 +55,7 @@ def create_enemy():
     type = ENEMY_TYPE
 
     enemy_character = Enemy(name, age, strength, agility, constitution, type)
-    Enemies.add_character_list(enemy_character)
+    Controller_Enemies.add_character_list(enemy_character)
 
 
 def choose_character():
@@ -75,12 +74,12 @@ def combat():
         return CRITICAL_DAMAGE
 
 
-
-#create_character()
-#create_character()
-#create_character()
-#delete_character()
-#Characters.view_character_list()
-#create_enemy()
-#Enemies.view_character_list()
-print(combat())
+"""create_character()
+create_character()
+create_character()
+delete_character()
+Controller_Characters.view_character_list()
+create_enemy()
+Enemies.view_character_list()
+print(combat())"""
+print(generate_random_attributes(5, 60, 1, 100))
