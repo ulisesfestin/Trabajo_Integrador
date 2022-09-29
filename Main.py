@@ -13,9 +13,35 @@ Enemies = Controller()
 def create_character():
     name = str(input(INPUT_NAME))
     age = int(input(INPUT_AGE))
-    strength = int(input(INPUT_STRENGTH))
-    agility = int(input(INPUT_AGILITY))
-    constitution = int(input(INPUT_CONSTITUTION))
+    def Distribute_score():
+        global strength, agility, constitution
+        strength = 0
+        agility = 0
+        constitution = 0
+        score = 15
+        while score > 0:
+            print(INPUT_SCORE1, score, INPUT_SCORE2)
+            strength = int(input(INPUT_STRENGTH))
+            score = score-strength  
+            if score < 0:
+                Distribute_score()
+            else:
+                pass
+            print(INPUT_SCORE1, score , INPUT_SCORE2)
+            agility = int(input(INPUT_AGILITY))
+            score = score-agility
+            if score < 0:
+                Distribute_score()
+            else:
+                pass
+            print(INPUT_SCORE1, score , INPUT_SCORE2)
+            constitution = int(input(INPUT_CONSTITUTION))
+            score = score-constitution
+            if score < 0:
+                Distribute_score()
+            else:
+                pass
+    Distribute_score()
     type = str(input(INPUT_TYPE))
 
     if type == IF_HUMAN_TYPE:
@@ -76,11 +102,11 @@ def combat():
 
 
 
-#create_character()
-#create_character()
-#create_character()
-#delete_character()
-#Characters.view_character_list()
-#create_enemy()
-#Enemies.view_character_list()
-print(combat())
+create_character()
+create_character()
+create_character()
+delete_character()
+Characters.view_character_list()
+create_enemy()
+Enemies.view_character_list()
+#print(combat())

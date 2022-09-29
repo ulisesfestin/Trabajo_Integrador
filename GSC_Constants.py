@@ -1,5 +1,8 @@
 INPUT_NAME = "Enter the name: "
 INPUT_AGE = "Enter the age: "
+SCORE = 15
+INPUT_SCORE1 = "There are "
+INPUT_SCORE2 = " points to distribute between strength, agility and constitution"
 INPUT_STRENGTH = "Enter strength points: "
 INPUT_AGILITY = "Enter agility points: "
 INPUT_CONSTITUTION = "Enter constitution points: "
