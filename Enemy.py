@@ -12,3 +12,12 @@ class Enemy(Character):
 
     def get_attributes(self):
         return self.__strength, self.__agility, self.__constitution
+
+    def check_health(self):
+        if self.__health > 0:
+            return True
+        else:
+            return False
+
+    def set_health(self, damage):
+        self.__health -= damage

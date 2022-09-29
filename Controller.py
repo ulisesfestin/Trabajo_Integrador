@@ -2,8 +2,11 @@ from GSC_Constants import *
 
 
 class Controller:
-    def __init__(self):
+    def __init__(self, max_of_characters):
         self.__list_of_characters = []
+        self.__fighter = None
+        self.__choose = False
+        self.__max = max_of_characters
 
     def add_character_list(self, character):
         if self.check_maximum_characters():
@@ -20,7 +23,17 @@ class Controller:
         return print(CHARACTER_DELETED)
 
     def check_maximum_characters(self):
-        if len(self.__list_of_characters) < MAXIMUM_OF_CHARACTERS:
+        if len(self.__list_of_characters) < self.__max:
             return True
         else:
             return False
+
+    def get_character(self, index):
+        return self.__list_of_characters[index]
+
+    def get_fighter(self):
+        return self.__fighter
+
+    def set_fighter(self, fighter):
+        self.__fighter = fighter
+        self.__choose = True

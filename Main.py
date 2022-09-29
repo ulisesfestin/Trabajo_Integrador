@@ -6,8 +6,8 @@ from Orc import Orc
 from Enemy import Enemy
 from GSC_Constants import *
 from Controller import *
-Controller_Characters = Controller()
-Controller_Enemies = Controller()
+Controller_Characters = Controller(MAXIMUM_OF_CHARACTERS)
+Controller_Enemies = Controller(MAXIMUM_OF_ENEMIES)
 
 
 def create_character():
@@ -49,37 +49,44 @@ def generate_random_attributes(number_of_attributes, total, range1, range2):
 
 
 def create_enemy():
-    name = str(input(INPUT_NAME))
-    age = int(input(INPUT_AGE))
-    strength, agility, constitution = generate_random_attributes(3, ATTRIBUTES_PARAMETER_ENEMY, FIRST_DELIMITER_ENEMY, SECOND_DELIMITER_ENEMY)
-    type = ENEMY_TYPE
-
-    enemy_character = Enemy(name, age, strength, agility, constitution, type)
-    Controller_Enemies.add_character_list(enemy_character)
+    for k in range(MAXIMUM_OF_ENEMIES):
+        name = "Death Soldier"
+        age = 1500
+        strength, agility, constitution = generate_random_attributes(3, ATTRIBUTES_PARAMETER_ENEMY, FIRST_DELIMITER_ENEMY, SECOND_DELIMITER_ENEMY)
+        type = ENEMY_TYPE
+        enemy_character = Enemy(name, age, strength, agility, constitution, type)
+        Controller_Enemies.add_character_list(enemy_character)
 
 
 def choose_character():
+    print("List of characters, choose one.")
+    Controller_Characters.view_character_list()
+    character_input = int(input(""))
+    Controller_Characters.set_fighter(Controller_Characters.get_character(character_input-1))
+
+
+def combat():           # En desarrollo
+    """fighter = Controller_Characters.get_fighter()
+    enemy = Controller_Enemies.get_character(0)
+    round = 1
+    while True:
+        print("Round %s, FIGHT!" % round)
+        fighter.attack(enemy) if enemy.check_health() else break
+        enemy.attack(fighter) if fighter.check_health() else break
+        round += 1"""
     pass
 
 
-def combat():
-    dice = randint(1, 6) + randint(1, 6)
-    if dice in FIRST_GROUP:
-        return FIRST_GROUP_DAMAGE
-    elif dice in SECOND_GROUP:
-        return SECOND_GROUP_DAMAGE
-    elif dice in THIRD_GROUP:
-        return THIRD_GROUP_DAMAGE
-    else:
-        return CRITICAL_DAMAGE
 
 
-"""create_character()
-create_character()
-create_character()
-delete_character()
-Controller_Characters.view_character_list()
+human_character = Human("Ulises Festin", 20, 8, 4, 3, "Human")
+Controller_Characters.add_character_list(human_character)
+elf_character = Elf("Aldana Moreno", 20, 8, 4, 3, "Elf")
+Controller_Characters.add_character_list(elf_character)
+orc_character = Orc("Pablo Balastegui", 20, 8, 4, 3, "Orc")
+Controller_Characters.add_character_list(orc_character)
+#Controller_Characters.view_character_list()
 create_enemy()
-Enemies.view_character_list()
-print(combat())"""
-print(generate_random_attributes(5, 60, 1, 100))
+Controller_Enemies.view_character_list()
+#choose_character()
+#combat()

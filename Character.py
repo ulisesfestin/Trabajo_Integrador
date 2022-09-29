@@ -1,4 +1,5 @@
 from GSC_Constants import *
+from random import randint
 
 
 class Character:
@@ -11,7 +12,6 @@ class Character:
         self.__type = type
         self.__level = 0
         self.__experience = 0
-        self.__characters_list = []
 
     def get_name(self):
         return self.__name
@@ -57,10 +57,21 @@ class Character:
     def move(self):
         print(CHARACTER_MOVING)
 
-    def attack(self):
-        print(CHARACTER_ATTACKING)
+    def attack(self, enemy):
+        if enemy.get_health() > 0:
+            dice = randint(1, 6) + randint(1, 6)
+            if dice in FIRST_GROUP:
+                enemy.set_health(FIRST_GROUP_DAMAGE)
+            elif dice in SECOND_GROUP:
+                enemy.set_health(SECOND_GROUP_DAMAGE)
+            elif dice in THIRD_GROUP:
+                enemy.set_health(THIRD_GROUP_DAMAGE)
+            else:
+                enemy.set_health(CRITICAL_DAMAGE)
+        else:
+            print(self.get_name(), "died.")
 
-
-
-
+    def __str__(self):
+        string = self.__name + " || " + self.__type
+        return string
 
