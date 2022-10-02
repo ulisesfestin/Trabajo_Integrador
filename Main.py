@@ -1,3 +1,4 @@
+import time
 from random import *
 from Character import Character
 from Human import Human
@@ -66,15 +67,27 @@ def choose_character():
 
 
 def combat():           # En desarrollo
-    """fighter = Controller_Characters.get_fighter()
+    fighter = Controller_Characters.get_fighter()
     enemy = Controller_Enemies.get_character(0)
     round = 1
     while True:
-        print("Round %s, FIGHT!" % round)
-        fighter.attack(enemy) if enemy.check_health() else break
-        enemy.attack(fighter) if fighter.check_health() else break
-        round += 1"""
-    pass
+        if not fighter.get_is_live():
+            print(fighter, "died.")
+            Controller_Characters.add_dead_list(Controller_Characters.remove_character_list(Controller_Characters.get_index(fighter)))
+            break
+        elif not enemy.get_is_live():
+            print(enemy, "died.")
+            Controller_Enemies.add_dead_list(Controller_Enemies.remove_character_list(0))
+            fighter.raise_xp()
+            break
+        else:
+            print("--------------------------------------------------")
+            print("Round %s, FIGHT!" % round)
+            fighter.attack(enemy)
+            enemy.attack(fighter)
+            round += 1
+            input("Press enter to continue.")
+
 
 
 
@@ -87,6 +100,6 @@ orc_character = Orc("Pablo Balastegui", 20, 8, 4, 3, "Orc")
 Controller_Characters.add_character_list(orc_character)
 #Controller_Characters.view_character_list()
 create_enemy()
-Controller_Enemies.view_character_list()
-#choose_character()
-#combat()
+#Controller_Enemies.view_character_list()
+choose_character()
+combat()

@@ -1,3 +1,6 @@
+import random
+import time
+
 from Character import Character
 from GSC_Constants import *
 
@@ -21,3 +24,24 @@ class Orc(Character):
 
     def set_health(self, damage):
         self.__health -= damage
+        if self.__health <= 0:
+            self.set_is_live(False)
+
+    def get_health(self):
+        return self.__health
+
+    def attack(self, target):
+        print(self.get_name(), "is attacking", target.get_name())
+        print("Rolling dice...")
+        time.sleep(0)
+        dice = random.randint(1, 6) + random.randint(1, 6)
+        print("You got a %s!" % dice)
+        if dice in FIRST_GROUP:
+            target.set_health(FIRST_GROUP_DAMAGE)
+        elif dice in SECOND_GROUP:
+            target.set_health(SECOND_GROUP_DAMAGE)
+        elif dice in THIRD_GROUP:
+            target.set_health(THIRD_GROUP_DAMAGE)
+        else:
+            target.set_health(CRITICAL_DAMAGE)
+            print("Critical hit!")

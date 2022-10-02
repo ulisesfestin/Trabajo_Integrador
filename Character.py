@@ -1,3 +1,5 @@
+import time
+
 from GSC_Constants import *
 from random import randint
 
@@ -12,6 +14,7 @@ class Character:
         self.__type = type
         self.__level = 0
         self.__experience = 0
+        self.__live = True
 
     def get_name(self):
         return self.__name
@@ -22,11 +25,20 @@ class Character:
     def get_type(self):
         return self.__type
 
+    def get_is_live(self):
+        return self.__live
+
+    def set_is_live(self, status: bool):
+        self.__live = status
+
     def set_age(self, age):
         self.__age = age if self.check_validate_age(age) else EMPTY_INT
 
     def set_name(self, name):
         self.__name = name if self.check_validate_name(name) else EMPTY_STR
+
+    def set_xp(self, xp):
+        self.__experience = xp
 
     def check_validate_age(self, age):
         if age > AGE_PARAMETER:
@@ -57,21 +69,21 @@ class Character:
     def move(self):
         print(CHARACTER_MOVING)
 
-    def attack(self, enemy):
-        if enemy.get_health() > 0:
-            dice = randint(1, 6) + randint(1, 6)
-            if dice in FIRST_GROUP:
-                enemy.set_health(FIRST_GROUP_DAMAGE)
-            elif dice in SECOND_GROUP:
-                enemy.set_health(SECOND_GROUP_DAMAGE)
-            elif dice in THIRD_GROUP:
-                enemy.set_health(THIRD_GROUP_DAMAGE)
-            else:
-                enemy.set_health(CRITICAL_DAMAGE)
-        else:
-            print(self.get_name(), "died.")
-
     def __str__(self):
-        string = self.__name + " || " + self.__type
+        string = self.__name + " (" + self.__type + ")"
         return string
 
+    def raise_xp(self):
+        self.__experience += randint(30, 70)
+        if self.__experience >= 100:
+            self.raise_level()
+
+    def raise_level(self):
+        self.__level += 1
+        self.set_xp(0)
+        self.increase_stats()
+
+    def increase_stats(self):
+        self.__strength += 1
+        self.__agility += 1
+        self.__constitution += 1
