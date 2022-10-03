@@ -1,12 +1,11 @@
-import time
 from random import *
-from Character import Character
-from Human import Human
-from Elf import Elf
-from Orc import Orc
-from Enemy import Enemy
-from GSC_Constants import *
+
 from Controller import *
+from Elf import Elf
+from Enemy import Enemy
+from Human import Human
+from Orc import Orc
+
 Controller_Characters = Controller(MAXIMUM_OF_CHARACTERS)
 Controller_Enemies = Controller(MAXIMUM_OF_ENEMIES)
 
@@ -89,17 +88,44 @@ def combat():           # En desarrollo
             input("Press enter to continue.")
 
 
+def close():
+    print('Saliendo')
+
+
+def menu():
+    while True:
+        print(MAIN_MENU)
+        op = int(input('Elija una opción: '))
+        if op == 1:
+            create_character()
+        elif op == 2:
+            delete_character()
+        elif op == 3:
+            create_enemy()
+        elif op == 4:
+            choose_character()
+        elif op == 5:
+            combat()
+        elif op == 6:
+            close()
+            break
+        else:
+            print('Opción incorrecta')
+
+
+#menu()
 
 
 
 human_character = Human("Ulises Festin", 20, 8, 4, 3, "Human")
 Controller_Characters.add_character_list(human_character)
-elf_character = Elf("Aldana Moreno", 20, 8, 4, 3, "Elf")
+elf_character = Elf("Aldana Moreno", 20, 5, 4, 6, "Elf")
 Controller_Characters.add_character_list(elf_character)
-orc_character = Orc("Pablo Balastegui", 20, 8, 4, 3, "Orc")
+orc_character = Orc("Pablo Balastegui", 20, 1, 5, 9, "Orc")
 Controller_Characters.add_character_list(orc_character)
 #Controller_Characters.view_character_list()
 create_enemy()
 #Controller_Enemies.view_character_list()
 choose_character()
 combat()
+#Controller_Enemies.view_stats()

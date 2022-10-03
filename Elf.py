@@ -11,7 +11,7 @@ class Elf(Character):
         self.__strength = strength
         self.__agility = agility + TYPE_ADVANTAGE
         self.__constitution = constitution
-        self.__health = BASE_HEALTH + (self.__constitution ** HEALTH_MULTIPLIER) / HEALTH_DIVISOR
+        self.__health = BASE_HEALTH + (self.__constitution * HEALTH_MULTIPLIER)
 
     def get_attributes(self):
         return self.__strength, self.__agility, self.__constitution, self.__health
@@ -37,11 +37,11 @@ class Elf(Character):
         dice = random.randint(1, 6) + random.randint(1, 6)
         print("You got a %s!" % dice)
         if dice in FIRST_GROUP:
-            target.set_health(FIRST_GROUP_DAMAGE)
+            target.set_health(self.__strength * FIRST_GROUP_DAMAGE)
         elif dice in SECOND_GROUP:
-            target.set_health(SECOND_GROUP_DAMAGE)
+            target.set_health(self.__strength * SECOND_GROUP_DAMAGE)
         elif dice in THIRD_GROUP:
-            target.set_health(THIRD_GROUP_DAMAGE)
+            target.set_health(self.__strength * THIRD_GROUP_DAMAGE)
         else:
-            target.set_health(CRITICAL_DAMAGE)
+            target.set_health(self.__strength * CRITICAL_DAMAGE)
             print("Critical hit!")

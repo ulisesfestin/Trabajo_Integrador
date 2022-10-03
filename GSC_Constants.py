@@ -6,6 +6,8 @@ INPUT_CONSTITUTION = "Enter constitution points: "
 INPUT_TYPE = "Enter the type of character (Human, Elf, Orc): "
 INPUT_DELETE_CHARACTER = "Enter the number of the character to delete: "
 
+MAIN_MENU = ' 1 Crear personaje \n 2 Eliminar personaje \n 3 Crear enemigo \n 4 Elegir personaje \n 5 Iniciar combate \n 6 Salir'
+
 CHARACTER_MOVING = "Character is moving."
 CHARACTER_ATTACKING = "Character is attacking."
 CHARACTER_DELETED = "Successfully eliminated character."
@@ -34,9 +36,9 @@ IF_ORC_TYPE = "Orc"
 ENEMY_TYPE = "Enemy"
 
 TYPE_ADVANTAGE = 2
-BASE_HEALTH = 20
-ENEMY_BASE_HEALTH = 10
-HEALTH_MULTIPLIER = 2
+BASE_HEALTH = 300
+ENEMY_BASE_HEALTH = 150
+HEALTH_MULTIPLIER = 10
 HEALTH_DIVISOR = 10
 
 FIRST_GROUP = [2, 3]

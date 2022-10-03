@@ -49,3 +49,7 @@ class Controller:
     def set_fighter(self, fighter):
         self.__fighter = fighter
         self.__choose = True
+
+    def view_stats(self):
+        for element in self.__list_of_characters:
+            print(element.get_attributes())
