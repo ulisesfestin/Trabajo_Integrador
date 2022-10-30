@@ -35,7 +35,7 @@ class Enemy(Character):
         print("Rolling dice...")
         time.sleep(0)
         dice = random.randint(1, 6) + random.randint(1, 6)
-        print("You got a %s!" % dice)
+        print("He got a %s!" % dice)
         if dice in FIRST_GROUP:
             target.set_health(self.__strength * FIRST_GROUP_DAMAGE)
         elif dice in SECOND_GROUP:

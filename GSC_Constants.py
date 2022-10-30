@@ -5,8 +5,14 @@ INPUT_AGILITY = "Enter agility points: "
 INPUT_CONSTITUTION = "Enter constitution points: "
 INPUT_TYPE = "Enter the type of character (Human, Elf, Orc): "
 INPUT_DELETE_CHARACTER = "Enter the number of the character to delete: "
+INPUT_CHOICE = 'Choose an option: '
+INPUT_ERROR = 'The option entered is not valid. Retry.'
 
-MAIN_MENU = ' 1 Crear personaje \n 2 Eliminar personaje \n 3 Crear enemigo \n 4 Elegir personaje \n 5 Iniciar combate \n 6 Salir'
+MAIN_MENU = ' 1 Play \n 2 Credits \n 3 Exit'
+SECONDARY_MENU = ' 1 Choose a fighter \n 2 Combat \n 3 View stats \n 4 Inventory \n 5 Exit'
+COMBAT_MENU = ' 1 Attack \n 2 Use an item \n 3 Run away'
+CREDITS = "Game developed by: \n* Ulises Festín \n* Pablo Balastegui \n* Aldana Moreno"
+START_GAME = "In order to start playing, first create your 3 characters. \nPress enter to continue."
 
 CHARACTER_MOVING = "Character is moving."
 CHARACTER_ATTACKING = "Character is attacking."
@@ -36,8 +42,8 @@ IF_ORC_TYPE = "Orc"
 ENEMY_TYPE = "Enemy"
 
 TYPE_ADVANTAGE = 2
-BASE_HEALTH = 300
-ENEMY_BASE_HEALTH = 150
+BASE_HEALTH = 100
+ENEMY_BASE_HEALTH = 50
 HEALTH_MULTIPLIER = 10
 HEALTH_DIVISOR = 10
 

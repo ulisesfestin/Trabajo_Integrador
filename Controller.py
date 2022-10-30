@@ -51,5 +51,5 @@ class Controller:
         self.__choose = True
 
     def view_stats(self):
-        for element in self.__list_of_characters:
-            print(element.get_attributes())
+        for character in self.__list_of_characters:
+            print(character.get_name(), "--> Strength: %s, Agility: %s, Constitution: %s, Health: %s" % character.get_attributes())

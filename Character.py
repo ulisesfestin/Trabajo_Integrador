@@ -1,7 +1,4 @@
-import time
-
 from GSC_Constants import *
-from random import randint
 
 
 class Character:
@@ -12,8 +9,6 @@ class Character:
         self.__agility = agility if self.check_validate_atributes(strength, agility, constitution, type) else EMPTY_INT
         self.__constitution = constitution if self.check_validate_atributes(strength, agility, constitution, type) else EMPTY_INT
         self.__type = type
-        self.__level = 0
-        self.__experience = 0
         self.__live = True
 
     def get_name(self):
@@ -36,9 +31,6 @@ class Character:
 
     def set_name(self, name):
         self.__name = name if self.check_validate_name(name) else EMPTY_STR
-
-    def set_xp(self, xp):
-        self.__experience = xp
 
     def check_validate_age(self, age):
         if age > AGE_PARAMETER:
@@ -73,17 +65,4 @@ class Character:
         string = self.__name + " (" + self.__type + ")"
         return string
 
-    def raise_xp(self):
-        self.__experience += randint(30, 70)
-        if self.__experience >= 100:
-            self.raise_level()
 
-    def raise_level(self):
-        self.__level += 1
-        self.set_xp(0)
-        self.increase_stats()
-
-    def increase_stats(self):
-        self.__strength += 1
-        self.__agility += 1
-        self.__constitution += 1
