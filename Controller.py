@@ -58,7 +58,7 @@ class Controller:
 
     def view_stats(self):
         for character in self.__list_of_characters:
-            print(character.get_name(), "--> Strength: %s, Agility: %s, Constitution: %s, Health: %s" % character.get_attributes())
+            print(character.get_name(), "--> Strength: %s, Agility: %s, Constitution: %s, Health: %s, level: %s" % character.get_attributes())
 
     def view_inventory(self):
         for index in range(len(self.__inventory)):

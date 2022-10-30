@@ -17,7 +17,7 @@ class Orc(Character):
         self.__experience = 0
 
     def get_attributes(self):
-        return self.__strength, self.__agility, self.__constitution, self.__health
+        return self.__strength, self.__agility, self.__constitution, self.__health, self.__level
 
     def check_health(self):
         if self.__health > 0:

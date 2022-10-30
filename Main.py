@@ -13,6 +13,8 @@ Controller_Enemies = Controller(MAXIMUM_OF_ENEMIES)
 def create_character():
     name = str(input(INPUT_NAME))
     age = int(input(INPUT_AGE))
+
+    
     strength = int(input(INPUT_STRENGTH))
     agility = int(input(INPUT_AGILITY))
     constitution = int(input(INPUT_CONSTITUTION))
