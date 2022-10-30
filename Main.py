@@ -114,7 +114,7 @@ def view_stats():
 
 
 def close():
-    print('Closign...')
+    print('Closing...')
     time.sleep(2)
     print("Thanks for playing!")
 

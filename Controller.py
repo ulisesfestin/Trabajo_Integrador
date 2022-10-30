@@ -8,6 +8,12 @@ class Controller:
         self.__fighter = None
         self.__choose = False
         self.__max = max_of_characters
+        self.__inventory = [("Small life potion.", "Healing", "Small potion that restores 25 health points.", "Small"),
+                            ("Large health potion.", "Healing", "Large potion that restores 50 health points.", "Large"),
+                            ("Attack x2", "Attack", "Brew that temporarily doubles the fighter's attack.", "Small"),
+                            ("Attack x5", "Attack", "Super powerful infusion that quintuples the fighter's attack temporarily.", "Larger"),
+                            ("Little bottle of experience", "Leveling", "Increase 15 experience points.", "Small"),
+                            ("Barrel of experience.", "Leveling", "Barrel that increases 50 experience points.", "Large")]
 
     def add_character_list(self, character):
         if self.check_maximum_characters():
@@ -53,3 +59,13 @@ class Controller:
     def view_stats(self):
         for character in self.__list_of_characters:
             print(character.get_name(), "--> Strength: %s, Agility: %s, Constitution: %s, Health: %s" % character.get_attributes())
+
+    def view_inventory(self):
+        for index in range(len(self.__inventory)):
+            print(str(index + 1) + ")", self.__inventory[index].get_name(), "-->", self.__inventory[index].get_description())
+
+    def add_item_inventory(self, item):
+        self.__inventory.append(item)
+
+    def generate_item(self):
+        pass

@@ -30,6 +30,9 @@ class Human(Character):
         if self.__health <= 0:
             self.set_is_live(False)
 
+    def healing(self, points):
+        self.__health += points
+
     def set_xp(self, xp):
         self.__experience = xp
 
