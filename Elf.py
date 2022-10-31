@@ -3,7 +3,6 @@ import time
 
 from Character import Character
 from GSC_Constants import *
-from random import randint
 
 
 class Elf(Character):
@@ -30,6 +29,12 @@ class Elf(Character):
         if self.__health <= 0:
             self.set_is_live(False)
 
+    def multiply_damage(self, k):
+        self.__strength = self.__strength * k
+
+    def healing(self, points):
+        self.__health += points
+
     def get_health(self):
         return self.__health
 
@@ -43,20 +48,19 @@ class Elf(Character):
         dice = random.randint(1, 6) + random.randint(1, 6)
         print("You got a %s!" % dice)
         if dice in FIRST_GROUP:
-            target.set_health(self.__strength * FIRST_GROUP_DAMAGE)
+            target.set_health(self.__strength + self.__strength * FIRST_GROUP_DAMAGE)
         elif dice in SECOND_GROUP:
-            target.set_health(self.__strength * SECOND_GROUP_DAMAGE)
+            target.set_health(self.__strength + self.__strength * SECOND_GROUP_DAMAGE)
         elif dice in THIRD_GROUP:
-            target.set_health(self.__strength * THIRD_GROUP_DAMAGE)
+            target.set_health(self.__strength + self.__strength * THIRD_GROUP_DAMAGE)
         else:
-            target.set_health(self.__strength * CRITICAL_DAMAGE)
+            target.set_health(self.__strength + self.__strength * CRITICAL_DAMAGE)
             print("Critical hit!")
 
-    def raise_xp(self):
-        xp = randint(30, 70)
+    def raise_xp(self, xp):
         self.__experience += xp
         print("Your fighter gained %s experience points." % xp)
-        if self.__experience >= 100:
+        if self.__experience >= (100 + self.__level * 10):
             self.raise_level()
 
     def raise_level(self):

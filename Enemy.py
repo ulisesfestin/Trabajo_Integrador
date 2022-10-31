@@ -37,11 +37,11 @@ class Enemy(Character):
         dice = random.randint(1, 6) + random.randint(1, 6)
         print("He got a %s!" % dice)
         if dice in FIRST_GROUP:
-            target.set_health(self.__strength * FIRST_GROUP_DAMAGE)
+            target.set_health(self.__strength + self.__strength * FIRST_GROUP_DAMAGE)
         elif dice in SECOND_GROUP:
-            target.set_health(self.__strength * SECOND_GROUP_DAMAGE)
+            target.set_health(self.__strength + self.__strength * SECOND_GROUP_DAMAGE)
         elif dice in THIRD_GROUP:
-            target.set_health(self.__strength * THIRD_GROUP_DAMAGE)
+            target.set_health(self.__strength + self.__strength * THIRD_GROUP_DAMAGE)
         else:
-            target.set_health(self.__strength * CRITICAL_DAMAGE)
+            target.set_health(self.__strength + self.__strength * CRITICAL_DAMAGE)
             print("Critical hit!")
