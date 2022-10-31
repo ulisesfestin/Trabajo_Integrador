@@ -9,12 +9,15 @@ INPUT_CHOICE = 'Choose an option: '
 INPUT_ERROR = 'The option entered is not valid. Retry.'
 INPUT_LIST_OF_CHARACTERS = "List of characters, choose one."
 
-MAIN_MENU = ' 1 Play \n 2 Credits \n 3 Exit'
+
+MAIN_MENU = 'WELCOME! \n ' \
+            '1 Play \n 2 Credits \n 3 Exit'
 SECONDARY_MENU = ' 1 Choose a fighter \n 2 Combat \n 3 View stats \n 4 Inventory \n 5 Exit'
 COMBAT_MENU = ' 1 Attack \n 2 Use an item \n 3 Run away'
 CREDITS = "Game developed by: \n* Ulises Festín \n* Pablo Balastegui \n* Aldana Moreno"
 START_GAME = "In order to start playing, first create your 3 characters. \nPress enter to continue."
 LIST_OF_TYPES = {1: "Human", 2: "Elf", 3: "Orc"}
+ENTER = "Press enter to return to the main menu."
 
 CHARACTER_MOVING = "Character is moving."
 CHARACTER_ATTACKING = "Character is attacking."

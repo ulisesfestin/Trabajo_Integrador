@@ -44,7 +44,7 @@ class Human(Character):
     def attack(self, target):
         print(self.get_name(), "is attacking", target.get_name())
         print("Rolling dice...")
-        time.sleep(0)
+        time.sleep(2)
         dice = random.randint(1, 6) + random.randint(1, 6)
         print("You got a %s!" % dice)
         if dice in FIRST_GROUP:

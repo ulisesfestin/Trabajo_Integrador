@@ -37,6 +37,7 @@ def create_character():
         orc_character = Orc(name, age, strength, agility, constitution, type)
         Controller_Characters.add_character_list(orc_character)
     print("Successfully created character.")
+    time.sleep(2)
 
 
 def delete_character():
@@ -84,6 +85,7 @@ def health_bar(character):
 
 
 def create_enemy():
+    print("Generating enemies...")
     for k in range(MAXIMUM_OF_ENEMIES):
         name = ENEMY_NAME
         age = ENEMY_AGE
@@ -91,6 +93,7 @@ def create_enemy():
         type = ENEMY_TYPE
         enemy_character = Enemy(name, age, strength, agility, constitution, type)
         Controller_Enemies.add_character_list(enemy_character)
+    time.sleep(2)
 
 
 def choose_fighter():
@@ -177,8 +180,10 @@ def menu():
                     combat()
                 elif op == 3:
                     view_stats()
+                    input(ENTER)
                 elif op == 4:
                     Controller_Characters.view_inventory()
+                    input(ENTER)
                 elif op == 5:
                     close()
                     return
@@ -186,6 +191,7 @@ def menu():
                     print(INPUT_ERROR)
         elif op == 2:
             print(CREDITS)
+            time.sleep(2)
         elif op == 3:
             close()
             break
